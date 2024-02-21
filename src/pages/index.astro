@@ -1,0 +1,161 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import logo from "../components/logo.svg";
+import logoDark from "../img/girlId.png";
+
+export const prerender = true;
+---
+
+<Layout title="IdEnrollVisits">
+	<form class="max-w-md mx-auto text-xl" method="get" action="/confirm">
+		<Image class="w-48 rounded-s-md mx-auto" src={logo} alt="Logo" />
+
+		<div class="dark:text-blue-400 text-center uppercase mt-2 font-bold">
+			IdEnroll Visits
+		</div>
+		<div class="dark:text-blue-300 text-center mt-1">
+			Pre-registro
+		</div>
+		<div class="relative z-0 w-full mb-5 group">
+			<input
+				type="text"
+				name="name"
+				id="name"
+				class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+				placeholder=" "
+				required
+			/>
+			<label
+				for="name"
+				class="peer-focus:font-medium absolute text-sm text-gray-800 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+				>Nombre completo</label
+			>
+		</div>
+		<div class="relative z-0 w-full mb-5 group">
+			<input
+				type="email"
+				name="email"
+				id="email"
+				class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+				placeholder=" "
+				required
+			/>
+			<label
+				for="email"
+				class="peer-focus:font-medium absolute text-sm text-gray-900 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+				>Correo electronico</label
+			>
+		</div>
+		<div class="relative mx-auto mb-5">
+			<input
+				type="datetime-local"
+				name="date"
+				id="date"
+				class="block py-2.5 px-0 w-full text-sm text-gray-900  dark:text-gray-400 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+				placeholder=" "
+				required
+			/>
+			<label
+				for="date"
+				class="peer-focus:font-medium absolute text-sm text-gray-900 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+				>Selecciona una fecha</label
+			>
+		</div>
+		<div class="mb-5">
+			<div class="relative z-0 w-full mb-5 group">
+				<input
+					type="text"
+					name="motive"
+					id="motive"
+					class="block py-2.5 px-0 w-full text-sm text-black dark:text-gray-400 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+					placeholder=" "
+				/>
+				<label
+					for="motive"
+					class="peer-focus:font-medium absolute text-sm text-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+					>Motivo</label
+				>
+			</div>
+		</div>
+		<div class="mb-5">
+			<canvas class="mx-auto m-2 dark:bg-gray-500" id="canvas"> </canvas>
+			<div class="relative z-0 w-full mb-5 group">
+				<input
+					type="text"
+					name="code"
+					id="code"
+					class="block py-2.5 px-0 w-full text-sm text-black dark:text-gray-400 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+					placeholder=" "
+					required
+				/>
+				<label
+					for="code"
+					class="peer-focus:font-medium absolute text-sm text-gray-800 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+					>Ingresa el codigo de la imagen</label
+				>
+			</div>
+		</div>
+
+		<div class="mt-5">
+			<button
+				id="send"
+				class="dark:disabled:border-red-500 disabled:border-red-500 text-black dark:text-gray-400 rounded-md bg-transparent border dark:border-solid p-2 dark:border-gray-400"
+				>Enviar</button
+			>
+		</div>
+	</form>
+</Layout>
+<script>
+	const canvas = document.getElementById("canvas") as HTMLCanvasElement;
+	const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
+	const sendButton = document.getElementById("send") as HTMLElement
+	let code: number;
+	
+
+	// sendButton.addEventListener("click", async(event)=>{
+	// 	event.preventDefault()
+	// 	const response = await fetch("/api/sendEmail.json",{
+	// 		method: "POST",
+	// 		headers:{
+	// 			"Content-Type": "application/json",
+	// 		},
+	// 		body: JSON.stringify({
+	// 			name: "",
+	// 			motive: "",
+	// 			date: "",
+	// 			email: ""
+
+	// 		})
+	// 	})
+	// })
+
+	window.addEventListener("DOMContentLoaded", () => {
+		generateCode();
+	});
+
+	const generateCode = () => {
+		const randomDigits = Math.floor(10000 + Math.random() * 90000);
+		code = randomDigits;
+		drawCode(randomDigits);
+	};
+
+	const drawCode = (code: number) => {
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		ctx.font = "30px Arial";
+		ctx.fillStyle = "#000";
+		ctx.textAlign = "center";
+		for (let i = 0; i < 6; i++) {
+			for (let j = 0; j < 12; j++) {
+				ctx.strokeStyle = `rgb(0,${Math.floor(255 - 10.5 * i)},${Math.floor(255 - 42.5 * j)})`;
+				ctx.beginPath();
+				ctx.arc(12.5 + j * 25, 12.5 + i * 25, 15, 0, Math.PI * 2, true);
+				ctx.stroke();
+			}
+		}
+
+		ctx.fillText(`${code}`, canvas.width / 2, canvas.height / 1.75);
+	};
+
+
+</script>
